@@ -5,7 +5,7 @@
 - the [BaseActivity][BaseActivity] implemetnts all about the SDK initial functions
 
 <br/>
-<a target="_blank" href="https://s3.cn-north-1.amazonaws.com.cn/intowow-sdk/android/sample/BaseActivity.zip">Download Link</a>
+<a target="_blank" href="https://s3.cn-north-1.amazonaws.com.cn/intowow-sdk/android/sample/BaseActivity.zip">Download</a>
 
 ```java
 	change
