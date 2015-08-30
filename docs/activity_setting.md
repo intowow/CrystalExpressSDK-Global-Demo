@@ -1,7 +1,7 @@
 <h2 id='activity' style='color:red'>Activity</h2>
 
 <h4 style='color:green'>Initialize SDK</h4>
-- let all activities which you have defined in the AndroidManifest.xml extend the BaseActivity.java
+- let all activities defined in the AndroidManifest.xml extend the BaseActivity.java
 - the [BaseActivity][BaseActivity] implemetnts all about the SDK initial functions
 
 <br/>
