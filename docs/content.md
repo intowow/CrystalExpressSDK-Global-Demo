@@ -14,19 +14,26 @@
 	<CrystalExpressScrollView/>
 ```
 
-- you can reference to [activity_content.xml][activity_content.xml]
+- you can refer to [activity_content.xml][activity_content.xml]
+
+---------------------------------------
 
 <h4 id='content-1' style='color:red'>Integration Steps</h4>
-
-<p/>[Sample Code link][Content-activity]<p/>
 
 <span style='font-weight: bold;color:red'>
 Note:
 </span>
+<br/>
 <span style='font-weight: bold;color:red'>
-if you can not see any ad after integration, you can reference to <a target="_blank" href="../faq">Trouble shooting</a>
+before starting your integration, please remove the Demo App first.
 </span>
 <br/>
+<span style='font-weight: bold;color:red'>
+if you can not see any ad after integration, you can refer to <a target="_blank" href="../faq">Trouble shooting</a>
+</span>
+<br/>
+
+<p/>[Sample Code link][Content-activity]<p/>
 
 - let the Activity extend the [BaseActivity](./activity_setting)<p/>
 <p/>

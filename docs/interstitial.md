@@ -2,9 +2,7 @@
 
 - Interstitial splash ad means that one ad shows in the stream page while you cback from the article page
 
-<p/>
-[Sample Code link][Interstitial]
-<p/>
+---------------------------------------
 
 <h4 id='interstitialsplash-1' style='color:green'>Integration Steps</h4>
 
@@ -13,9 +11,17 @@ Note:
 </span>
 <br/>
 <span style='font-weight: bold;color:red'>
-if you can not see any ad after integration, please reference to <a target="_blank" href="../faq">Trouble shooting</a>
+before starting your integration, please remove the Demo App first.
 </span>
 <br/>
+<span style='font-weight: bold;color:red'>
+if you can not see any ad after integration, you can refer to <a target="_blank" href="../faq">Trouble shooting</a>
+</span>
+<br/>
+
+<p/>
+[Sample Code link][Interstitial]
+<p/>
 
 - let the Activity extend the [BaseActivity](./activity_setting)<p/>
 <p/>

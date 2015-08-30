@@ -181,3 +181,4 @@ gen/com/intowow/crystalexpress/BuildConfig.java
 gen/com/intowow/crystalexpress/R.java
 gen/com/intowow/sdk/R.java
 bin/
+.settings/org.eclipse.jdt.core.prefs

@@ -13,8 +13,13 @@
 <span style='font-weight: bold;color:red'>
 Note:
 </span>
+<br/>
 <span style='font-weight: bold;color:red'>
-if you can not see any ad after integration, you can reference to <a target="_blank" href="../faq">Trouble shooting</a>
+before starting your integration, please remove the Demo App first.
+</span>
+<br/>
+<span style='font-weight: bold;color:red'>
+if you can not see any ad after integration, you can refere to <a target="_blank" href="../faq">Trouble shooting</a>
 </span>
 <br/>
 

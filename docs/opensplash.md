@@ -18,7 +18,11 @@ Note:
 </span>
 <br/>
 <span style='font-weight: bold;color:red'>
-if you can not see any ad after integration, you can reference to <a target="_blank" href="../faq">Trouble shooting</a>
+before starting your integration, please remove the Demo App first.
+</span>
+<br/>
+<span style='font-weight: bold;color:red'>
+if you can not see any ad after integration, you can refer to <a target="_blank" href="../faq">Trouble shooting</a>
 </span>
 <br/>
 
@@ -243,7 +247,7 @@ Note:
 </span>
 <br/>
 <span style='font-weight: bold;color:red'>
-3.the demo App supplies the bounce effect that you can reference too
+3.the demo App also supplies the bounce effect that you can refer it
 </span>
 <br/>
 <span style='font-weight: bold;color:red'>
