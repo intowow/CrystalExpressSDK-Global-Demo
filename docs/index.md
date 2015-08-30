@@ -2,13 +2,6 @@
 
 - CrystalExpress is a premium video ad serving platform for mobile Apps. It is designed to deliver high definition native video and image ads with best user experience.
 
-<p/>
-- <a target="_blank" href="http://crystalexpresssdk-doc.readthedocs.org/en/latest/">
-Documentation 
-<a/>
-
-<p/>
-
 <div style="display:inline">
 
 <img src="https://s3.cn-north-1.amazonaws.com.cn/intowow-common/preview/img/CE_Snapshot_1_android.jpg" alt="splash demo" width="150">
@@ -21,5 +14,3 @@ Documentation
 <p/>
 <p/>
 <p/>
-
-
