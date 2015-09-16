@@ -16,6 +16,15 @@
 	</thead>
 	<tbody>
 		<tr>
+			<td align="center">7.0</td><td align="center">2015/09/15</td>
+			<td>
+				<ul>
+					<li>add enter foreground splash ad debug method</li>
+					<li>modify the integration of the splash ad</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
 			<td align="center">6.0</td><td align="center">2015/08/30</td>
 			<td>
 				<ul>
@@ -79,6 +88,27 @@
 		</tr>
 	</thead>
 	<tbody>
+		<tr>
+			<td align="center">1.1.48</td><td align="center">2015/09/10</td>
+			<td>
+				<ul>
+					<li>fix "clearAddedAd" API bug</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td align="center">1.1.47</td><td align="center">2015/09/08</td>
+			<td>
+				<ul>
+					<li>add background fetch tracking</li>
+					<li>add ad request token</li>
+					<li>add "clearAddedAd" API in the StreamHelper</li>
+					<li>add "onRecreate" API in the StreamHelper</li>
+					<li>improve preroll ad in the StreamHelper</li>
+					<li>improve third-party tracking</li>
+				</ul>
+			</td>
+		</tr>
 		<tr>
 			<td align="center">1.1.46</td><td align="center">2015/08/30</td>
 			<td>

@@ -23,28 +23,17 @@ if you can not see any ad after integration, you can refer to <a target="_blank"
 [Sample Code link][Interstitial]
 <p/>
 
-- let the Activity extend the [BaseActivity](./activity_setting)<p/>
+- let the Activity extend the [BaseActivity](./activity_setting), the BaseActivity includes logic that avoiding your APP request splash ad twice when screen are rotated in showing the landscape splash ad<p/>
 <p/>
 
 - copy the [slide_in_from_bottom.xml][slide_in_from_bottom] and [no_animation.xml][no_animation] from the demo App into your project path `res/anim/`
 
 <p/>
 
-- add `android:configChanges="orientation|screenSize"` property inside of the activity in the AndroidManifest.xml
-
-<p/>
-
-<span style='font-weight: bold;color:red'>Note:</span>
-<br/>
-<span style='font-weight: bold;color:red'>
-if you don't add this property in the activity, then your activiy will be recreated when you getting a landscape splash ad
-</span>
-
 - declare variables ([Sample Code link][Interstitial-init])
 <codetag tag="Interstitial-init"/>
 ```java
 private final static String mInterstitialPlacement = Config.INTERSTITIAL_PLACEMENT;
-private SplashAD mInterstitialSplashAd = null;
 ```
 <p/>
 
@@ -53,41 +42,37 @@ private SplashAD mInterstitialSplashAd = null;
 - request a splash ad([Sample Code link][Interstitial-request])
 <codetag tag="Interstitial-request"/>
 ```java
-mInterstitialSplashAd = I2WAPI.requesSplashAD(CEStreamActivity.this, mInterstitialPlacement);
+//	check it for landscape ad case
+//
+if(hasRequestedSplashAd()) {
+	return;
+}
+mSplashAd = I2WAPI.requesSingleOfferAD(CEStreamActivity.this, mInterstitialPlacement);
 ```
 <p/>
 
 - set listener([Sample Code link][Interstitial-setListener])
-- this callback is `Non-Blocking Calls` after you use the `I2WAPI.requesSplashAD()`
+- this callback is `Blocking Calls` after you use the `I2WAPI.requesSingleOfferAD()`
 
 <codetag tag="Interstitial-setListener"/>
 ```java
-if (mInterstitialSplashAd != null) {
-	//	this is a Non-Blocking calls
-	//
-	mInterstitialSplashAd.setListener(new SplashAdListener() {
+if (mSplashAd != null) {
+	mSplashAd.setListener(new SplashAdListener() {
 
 		@Override
 		public void onLoaded() {
-			if(mInterstitialSplashAd != null) {
-				mInterstitialSplashAd.show(R.anim.slide_in_from_bottom, R.anim.no_animation);
-			}
+			mSplashAd.show(R.anim.slide_in_from_bottom, 
+					R.anim.no_animation);
 		}
 
 		@Override
 		public void onLoadFailed() {
-			if(mInterstitialSplashAd != null) {
-				mInterstitialSplashAd.release();
-			}
+			onSplashAdFinish();
 		}
 
 		@Override
 		public void onClosed() {
-			//	be sure to release the splash ad here
-			//
-			if(mInterstitialSplashAd != null) {
-				mInterstitialSplashAd.release();
-			}
+			onSplashAdFinish();
 		}
 	});
 }
@@ -97,20 +82,17 @@ if (mInterstitialSplashAd != null) {
 - release the ad in the `onDestroy()` ([Sample Code link][Interstitial-release])
 <codetag tag="Interstitial-release"/>
 ```java
-if (mInterstitialSplashAd != null) {
-	mInterstitialSplashAd.release();
-	mInterstitialSplashAd = null;
-}
+releaseSplashAd();
 ```
 <p/>
 
 - please go through the <a target="_blank" href="../checkpoint">Checkpoing</a> after finish integration
 
-[Interstitial-release]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/cedemo/CEStreamActivity.java#L367 "CEStreamActivity.java" 
-[OpenSplash-request]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/cedemo/CEOpenSplashActivity.java#L56 "CEOpenSplashActivity.java" 
-[Interstitial]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/cedemo/CEStreamActivity.java#L337 "CEStreamActivity.java" 
-[Interstitial-init]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/cedemo/CEStreamActivity.java#L84 "CEStreamActivity.java" 
-[Interstitial-request]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/cedemo/CEStreamActivity.java#L151 "CEStreamActivity.java" 
-[Interstitial-setListener]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/cedemo/CEStreamActivity.java#L155 "CEStreamActivity.java" 
+[Interstitial-release]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/cedemo/CEStreamActivity.java#L360 "CEStreamActivity.java" 
+[OpenSplash-request]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/cedemo/CEOpenSplashActivity.java#L35 "CEOpenSplashActivity.java" 
+[Interstitial]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/cedemo/CEStreamActivity.java#L330 "CEStreamActivity.java" 
+[Interstitial-init]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/cedemo/CEStreamActivity.java#L82 "CEStreamActivity.java" 
+[Interstitial-request]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/cedemo/CEStreamActivity.java#L148 "CEStreamActivity.java" 
+[Interstitial-setListener]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/cedemo/CEStreamActivity.java#L157 "CEStreamActivity.java" 
 [slide_in_from_bottom]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/blob/master/res/anim/slide_in_from_bottom.xml
 [no_animation]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/blob/master/res/anim/no_animation.xml

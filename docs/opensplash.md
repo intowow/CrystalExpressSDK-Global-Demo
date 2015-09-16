@@ -33,40 +33,27 @@ if you can not see any ad after integration, you can refer to <a target="_blank"
 [Sample Code link][OpenSplash]
 <p/>
 
-- let the launch Activity extend the [BaseActivity](./activity_setting)<p/>
+- let the launch Activity extend the [BaseActivity](./activity_setting), the BaseActivity includes logic that avoiding your APP request splash ad twice when screen are rotated in showing the landscape splash ad<p/>
 <p/>
 
 - copy the [slide_in_from_bottom.xml][slide_in_from_bottom] and [no_animation.xml][no_animation] from the demo App into your project path `res/anim/`
 
 <p/>
 
-<p/>
-
-- add `android:configChanges="orientation|screenSize"` property inside of the activity in the AndroidManifest.xml
-
-<p/>
-
-<span style='font-weight: bold;color:red'>Note:</span>
-<br/>
-<span style='font-weight: bold;color:red'>
-if you don't add this property in the activity, then your activiy will be recreated when you getting a landscape splash ad
-</span>
-
-- declare variables([Sample Code link][OpenSplash-mAd])
-<codetag tag="OpenSplash-mAd"/>
-```java
-private SplashAD mAd = null;
-```
-<p/>
-
 - request a splash ad ([Sample Code link][OpenSplash-request])
 
 <codetag tag="OpenSplash-request"/>
 ```java
+//	check it for landscape ad case
+//
+if(hasRequestedSplashAd()) {
+	return;
+}
+
 //	we can request the splash ad 
 //	after the LOGO shows for some time
 //
-mAd = I2WAPI.requesSingleOfferAD(CEOpenSplashActivity.this, "OPEN_SPLASH");
+mSplashAd = I2WAPI.requesSingleOfferAD(CEOpenSplashActivity.this, "OPEN_SPLASH");
 ```
 <p/>
 
@@ -95,12 +82,12 @@ the listener's callback is `Blocking Calls` after using `I2WAPI.requesSingleOffe
  
 <codetag tag="OpenSplash-setListener" id="OpenSplash-callback"/>
 ```java
-if (mAd != null) {
+if (mSplashAd != null) {
 
 	//	implement onLoaded, onLoadFailed and 
 	//	onClosed callback
 	//
-	mAd.setListener(new SplashAdListener() {
+	mSplashAd.setListener(new SplashAdListener() {
 
 		@Override
 		public void onLoaded() {
@@ -109,7 +96,7 @@ if (mAd != null) {
 			//
 			//	show splash ad here
 			//
-			mAd.show(R.anim.slide_in_from_bottom, 
+			mSplashAd.show(R.anim.slide_in_from_bottom, 
 					R.anim.no_animation);
 		}
 
@@ -118,6 +105,7 @@ if (mAd != null) {
 			//	this callback is called
 			//	when this splash ad load fail
 			//
+			onSplashAdFinish();
 			startNextActivity();
 		}
 
@@ -128,6 +116,7 @@ if (mAd != null) {
 			//	2.user press the onBackpress button
 			//	3.dismiss_time setting from the server
 			//
+			onSplashAdFinish();
 			startNextActivity();
 		}
 	});
@@ -136,6 +125,20 @@ if (mAd != null) {
 	//	start the next activity directly
 	//
 	startNextActivity();
+}
+```
+<p/>
+
+- release splash ad
+<br/>[Sample Code link][OpenSplash-release]
+
+<codetag tag="OpenSplash-release" id="OpenSplash-release"/>
+```java
+@Override
+protected void onDestroy() {
+	super.onDestroy();
+
+	releaseSplashAd();
 }
 ```
 <p/>
@@ -230,6 +233,21 @@ Note:
 do not remove SplashAdActivity and WebViewActivity in the FILTER_ACTIVITY_NAMES
 </span>
 
+- Debug method
+```
+click the "HOME" button,
+the mActiveReferenceCount will be ZERO
+in checkBackground() and start mEnterBackgroundTimer runnable.
+
+after 2 seconds, the mIsEnterFromBackground
+will be assigned to TRUE in mEnterBackgroundTimer.
+
+then open the APP again, the onActivityResumed() callback
+will go to the requestEnterForegroundSplashAd().
+finally it will call the I2WAPI.requesSingleOfferAD
+
+```
+
 ---------------------------------------
 
 - please go through the <a target="_blank" href="../checkpoint">Checkpoing</a> after finish integration
@@ -259,12 +277,13 @@ Note:
 </span>
 <p/>
 
-[OpenSplash-startapplication]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/BaseActivity.java#L30 "BaseActivity.java" 
+[OpenSplash-release]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/cedemo/CEOpenSplashActivity.java#L114 "CEOpenSplashActivity.java" 
+[OpenSplash-startapplication]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/BaseActivity.java#L40 "BaseActivity.java" 
 [OpenSplash-FILTER_ACTIVITY_NAMES]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/BaseApplication.java#L51 "BaseApplication.java" 
 [OpenSplash-mAd]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/cedemo/CEOpenSplashActivity.java#L25 "CEOpenSplashActivity.java" 
-[OpenSplash]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/cedemo/CEOpenSplashActivity.java#L14 "CEOpenSplashActivity.java" 
+[OpenSplash]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/cedemo/CEOpenSplashActivity.java#L12 "CEOpenSplashActivity.java" 
 [slide_in_from_bottom]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/blob/master/res/anim/slide_in_from_bottom.xml
 [no_animation]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/blob/master/res/anim/no_animation.xml
 [OpenSplash-onConfigurationChanged]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/cedemo/CEOpenSplashActivity.java#L29 "CEOpenSplashActivity.java" 
-[OpenSplash-request]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/cedemo/CEOpenSplashActivity.java#L56 "CEOpenSplashActivity.java" 
-[OpenSplash-setListener]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/cedemo/CEOpenSplashActivity.java#L63 "CEOpenSplashActivity.java" 
+[OpenSplash-request]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/cedemo/CEOpenSplashActivity.java#L35 "CEOpenSplashActivity.java" 
+[OpenSplash-setListener]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/cedemo/CEOpenSplashActivity.java#L48 "CEOpenSplashActivity.java" 
