@@ -89,6 +89,23 @@
 	</thead>
 	<tbody>
 		<tr>
+			<td align="center">1.1.55</td><td align="center">2015/09/24</td>
+			<td>
+				<ul>
+					<li>add dynamicly change ad mode</li>
+					<li>add tracking retry interval in the CN enviroment</li>
+					<li>add arrive button in the replay mode of the "SPLASH2_GENERAL_P" format</li>
+					<li>add dynamicly change ad mode</li>
+					<li>add request timeout function</li>
+					<li>add public API for StreamHelper</li>
+					<li>add dismiss time for the "SPLASH2_GENERAL_P" format</li>
+					<li>remove time slot check when downloading creative</li>
+					<li>improve fetch creative performance</li>
+					<li>fix the bug that when downloading creative finish</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
 			<td align="center">1.1.48</td><td align="center">2015/09/10</td>
 			<td>
 				<ul>
