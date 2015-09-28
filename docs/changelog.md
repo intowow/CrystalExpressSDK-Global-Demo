@@ -89,6 +89,15 @@
 	</thead>
 	<tbody>
 		<tr>
+			<td align="center">1.1.58</td><td align="center">2015/09/28</td>
+			<td>
+				<ul>
+					<li>add try-catch in public API</li>
+					<li>fix tracking bug</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
 			<td align="center">1.1.55</td><td align="center">2015/09/24</td>
 			<td>
 				<ul>
