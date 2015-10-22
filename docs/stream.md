@@ -77,6 +77,17 @@ private final static String  mPlacement = Config.STREAM_PLACEMENT;
 	2. `StreamHelper` class
 		- if your App can not extend the `DeferStreamAdapter`, then use this one
 
+
+<span style='font-weight: bold;color:red'>
+Note:
+</span>
+<br/>
+<span id='fix-init' style='font-weight: bold;color:red'>
+if you want to let the stream ad be shown at the fixed position and you can refer to <a target="_blank" href="../stream#fix_stream">Stream ad at the fixed position</a>
+</span>
+<br/>
+
+
 <p/>
 [Initial Sample Code-StreamHelper][Stream-StreamHelper-init]
 <p/>
@@ -541,7 +552,6 @@ if(adView != null) {
 	//	such as
 	//	adView.setBackgroundColor(Color.BLACK);
 	//	adView.setBackgroundResource(your resid);
-	//	adView.setBackground(your background drawable);
 	//	adView.setBackgroundDrawable(your background drawable);
 	return adView;
 }
@@ -643,19 +653,53 @@ public void onDestroy() {
 ```
 <p/>
 
+[Back to Top](./stream/#stream_import)
 
-- please go through the <a target="_blank" href="../checkpoint">Checkpoing</a> after finish integration
+---------------------------------------
+
+<h4 id='fix_stream' style='color:green;margin-bottom:15px'>Stream ad at the fixed position</h4>
+
+- the integration of fixed position stream ad is the same as defer stream.
+- the only difference is that initializing the helper as below and pass the `tag name` on to the helper.
+
+<p/>
+[Sample- Use FixPositionStreamHelper][Stream-StreamHelper-TagInit]
+<p/>
+<codetag tag="Stream-StreamHelper-TagInit"/>
+```java
+mStreamHelper = StreamHelper.getFixPositionStreamHelper(this, mTagName);
+```
+<p/>
+or
+<p/>
+[Sample- Use FixPositionStreamAdapter][Stream-fix-init]
+<p/>
+
+<codetag tag="Stream-fix-init"/>
+```java
+mAdapter = new ExtendFixPositionStreamAdapter(
+		this, 
+		mTagName, 
+		mItems);
+```
+<p/>
+
+- for getting the stream ad, you will need to submit `tag name` to Intowow as the `placement`.
+
 
 [Back to Top](./stream/#stream_import)
 
 ---------------------------------------
+
+- please go through the <a target="_blank" href="../checkpoint">Checkpoint</a> after finish integration
+
 
 <p/>
 
 [Stream-init]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/stream/defer/SingleDeferAdapterActivity.java#L34 "SingleDeferAdapterActivity.java" 
 [Stream-onScroll-defer]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/stream/defer/SingleDeferAdapterActivity.java#L79 "SingleDeferAdapterActivity.java" 
 [Stream-onScroll]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/stream/defer/SingleDeferAdapterActivity.java#L116 "SingleDeferAdapterActivity.java" 
-[Stream-notifyDataSetChanged]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/stream/defer/ExtendDeferStreamAdapter.java#L228 "ExtendDeferStreamAdapter.java" 
+[Stream-notifyDataSetChanged]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/stream/defer/ExtendDeferStreamAdapter.java#L227 "ExtendDeferStreamAdapter.java" 
 [Stream-StreamHelper-notifyDataSetChanged]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/stream/streamhelper/StreamHelperAdapter.java#L70 "StreamHelperAdapter.java" 
 [Stream-getItemViewType]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/stream/defer/ExtendDeferStreamAdapter.java#L72 "ExtendDeferStreamAdapter.java" 
 [Stream-StreamHelper-getItemViewType]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/stream/streamhelper/StreamHelperAdapter.java#L99 "StreamHelperAdapter.java" 
@@ -668,7 +712,7 @@ public void onDestroy() {
 [Stream-defer-init]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/stream/defer/SingleDeferAdapterActivity.java#L64 "SingleDeferAdapterActivity.java" 
 [Stream-StreamHelper-init]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/stream/streamhelper/SingleStreamHelperActivity.java#L85 "SingleStreamHelperActivity.java" 
 [Stream-onScroll-StreamHelper]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/stream/streamhelper/SingleStreamHelperActivity.java#L144 "SingleStreamHelperActivity.java" 
-[Stream-onADLoaded]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/stream/defer/ExtendDeferStreamAdapter.java#L184 "ExtendDeferStreamAdapter.java" 
+[Stream-onADLoaded]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/stream/defer/ExtendDeferStreamAdapter.java#L183 "ExtendDeferStreamAdapter.java" 
 [Stream-StreamHelper-onADLoaded]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/stream/streamhelper/SingleStreamHelperActivity.java#L89 "SingleStreamHelperActivity.java" 
 [Stream-life]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/stream/defer/SingleDeferAdapterActivity.java#L156 "SingleDeferAdapterActivity.java" 
 [Stream-StreamHelper-life]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/stream/streamhelper/SingleStreamHelperActivity.java#L164 "SingleStreamHelperActivity.java" 
@@ -676,3 +720,5 @@ public void onDestroy() {
 [Stream-Pull-OnScrollListener]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/cedemo/CEStreamActivity.java#L703 "CEStreamActivity.java" 
 [Stream-setOnItemClickListener]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/stream/defer/SingleDeferAdapterActivity.java#L87 "SingleDeferAdapterActivity.java" 
 [Stream-CEStreamActivity]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/cedemo/CEStreamActivity.java#L52 "CEStreamActivity.java" 
+[Stream-fix-init]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/stream/fixposition/SingleFixPositionAdapterActivity.java#L61 "SingleFixPositionAdapterActivity.java" 
+[Stream-StreamHelper-TagInit]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/stream/streamhelper/SingleFixPositionStreamHelperActivity.java#L85 "SingleFixPositionStreamHelperActivity.java" 

@@ -86,7 +86,7 @@ releaseSplashAd();
 ```
 <p/>
 
-- please go through the <a target="_blank" href="../checkpoint">Checkpoing</a> after finish integration
+- please go through the <a target="_blank" href="../checkpoint">Checkpoint</a> after finish integration
 
 [Interstitial-release]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/cedemo/CEStreamActivity.java#L360 "CEStreamActivity.java" 
 [OpenSplash-request]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/src/com/intowow/crystalexpress/cedemo/CEOpenSplashActivity.java#L35 "CEOpenSplashActivity.java" 

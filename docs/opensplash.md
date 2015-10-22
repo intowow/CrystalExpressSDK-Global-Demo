@@ -250,7 +250,7 @@ finally it will call the I2WAPI.requesSingleOfferAD
 
 ---------------------------------------
 
-- please go through the <a target="_blank" href="../checkpoint">Checkpoing</a> after finish integration
+- please go through the <a target="_blank" href="../checkpoint">Checkpoint</a> after finish integration
 
 <span style='font-weight: bold;color:red'>
 Note:

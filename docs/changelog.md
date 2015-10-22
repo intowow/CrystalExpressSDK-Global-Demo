@@ -16,6 +16,14 @@
 	</thead>
 	<tbody>
 		<tr>
+			<td align="center">8.0</td><td align="center">2015/10/22</td>
+			<td>
+				<ul>
+					<li>add integration of fixed position stream ad</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
 			<td align="center">7.0</td><td align="center">2015/09/15</td>
 			<td>
 				<ul>
@@ -88,6 +96,21 @@
 		</tr>
 	</thead>
 	<tbody>
+		<tr>
+			<td align="center">1.3.4</td><td align="center">2015/10/22</td>
+			<td>
+				<ul>
+					<li>remove api setBackground() in the stream ad format</li>
+					<li>improve the prefetch performance</li>
+					<li>check if the SDK status is ready while use streamhelper.clearAddedAd()</li>
+					<li>use full screen in the splash image format</li>
+					<li>add fixed position stream ad</li>
+					<li>fix trace active placement bug</li>
+					<li>handle out of memory while loading assets</li>
+					<li>adjust the retry interval for tracking</li>
+				</ul>
+			</td>
+		</tr>
 		<tr>
 			<td align="center">1.1.58</td><td align="center">2015/09/28</td>
 			<td>

@@ -20,7 +20,7 @@
 			<td>
             				<ul>
 					<li id="sdklink_global">
-			<a target="_blank" href="https://s3.cn-north-1.amazonaws.com.cn/intowow-sdk/android/jar/global/intowowsdk-global.1.1.58.jar">intowowsdk-global.1.1.58.jar</a>
+			<a target="_blank" href="https://s3.cn-north-1.amazonaws.com.cn/intowow-sdk/android/jar/global/intowowsdk-global.1.3.4.jar">intowowsdk-global.1.3.4.jar</a>
 					</li>
 					<li> <a target="_blank" href="https://s3.cn-north-1.amazonaws.com.cn/intowow-sdk/android/jar/global/android-support-v4.jar">android-support-v4.jar</a>
 					</li>

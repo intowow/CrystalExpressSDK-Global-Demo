@@ -174,7 +174,7 @@ public void onDestroy() {
 ```
 <p/>
 
-- please go through the <a target="_blank" href="../checkpoint">Checkpoing</a> after finish integration
+- please go through the <a target="_blank" href="../checkpoint">Checkpoint</a> after finish integration
  
 
 [activity_content.xml]:https://github.com/ddad-daniel/CrystalExpressSDK-CN-Demo/tree/master/res/layout/activity_content.xml "activity_content.xml"
