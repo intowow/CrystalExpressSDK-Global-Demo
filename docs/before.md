@@ -20,18 +20,9 @@
 			<td>
             				<ul>
 					<li id="sdklink_global">
-			<a target="_blank" href="https://s3.cn-north-1.amazonaws.com.cn/intowow-sdk/android/jar/global/intowowsdk-global.1.3.4.jar">intowowsdk-global.1.3.4.jar</a>
+			<a target="_blank" href="https://s3-ap-northeast-1.amazonaws.com/intowow-sdk/android/jar/global/intowowsdk-global.1.4.jar">intowowsdk-global.1.4.jar</a>
 					</li>
-					<li> <a target="_blank" href="https://s3.cn-north-1.amazonaws.com.cn/intowow-sdk/android/jar/global/android-support-v4.jar">android-support-v4.jar</a>
-					</li>
-					<li>
-						<a target="_blank" href="https://s3.cn-north-1.amazonaws.com.cn/intowow-sdk/android/jar/global/aws-android-sdk-core-2.2.1.jar">aws-android-sdk-core-2.2.1.jar</a>
-					</li>
-					<li>
-						<a target="_blank" href="https://s3.cn-north-1.amazonaws.com.cn/intowow-sdk/android/jar/global/aws-android-sdk-cognito-2.2.1.jar">aws-android-sdk-cognito-2.2.1.jar</a>
-					</li>
-					<li>
-						<a target="_blank" href="https://s3.cn-north-1.amazonaws.com.cn/intowow-sdk/android/jar/global/aws-android-sdk-kinesis-2.2.1.jar">aws-android-sdk-kinesis-2.2.1.jar</a>
+					<li> <a target="_blank" href="https://s3-ap-northeast-1.amazonaws.com/intowow-sdk/android/jar/global/android-support-v4.jar">android-support-v4.jar</a>
 					</li>
 				</ul>
             
