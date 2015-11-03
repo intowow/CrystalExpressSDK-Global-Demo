@@ -97,6 +97,17 @@
 	</thead>
 	<tbody>
 		<tr>
+			<td align="center">1.4</td><td align="center">2015/11/02</td>
+			<td>
+				<ul>
+					<li>remove AWS SDK</li>
+					<li>support audience targeting</li>
+					<li>handle facebook link while opening the deep link</li>
+					<li>check normal http link while opening the in-app browser</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
 			<td align="center">1.3.4</td><td align="center">2015/10/22</td>
 			<td>
 				<ul>
