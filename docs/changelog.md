@@ -97,7 +97,7 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td align="center">1.5</td><td align="center">2015/12/03</td>
+			<td align="center">1.5.1</td><td align="center">2015/12/03</td>
 			<td>
 				<ul>
 					<li>add new 'SPONSOR' price type for ad</li>
