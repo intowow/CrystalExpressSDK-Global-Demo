@@ -97,6 +97,19 @@
 	</thead>
 	<tbody>
 		<tr>
+			<td align="center">1.5</td><td align="center">2015/11/30</td>
+			<td>
+				<ul>
+					<li>add new 'SPONSOR' price type for ad</li>
+					<li>add 'time zone' feature for ad serving</li>
+					<li>add reset last impression time for ad serving</li>
+					<li>add required impression behavior for ad serving</li>
+					<li>add 'ad_list_ref', 'device_level', 'total_file_size', 'impressions' properties in the tracking event</li>
+					<li>fix incorrect remove tracking event bug</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
 			<td align="center">1.4</td><td align="center">2015/11/02</td>
 			<td>
 				<ul>
