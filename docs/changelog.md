@@ -97,6 +97,14 @@
 	</thead>
 	<tbody>
 		<tr>
+			<td align="center">1.5.2</td><td align="center">2015/12/14</td>
+			<td>
+				<ul>
+					<li>CE-406: Fix stream sync card animation bug</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
 			<td align="center">1.5.1</td><td align="center">2015/12/03</td>
 			<td>
 				<ul>
