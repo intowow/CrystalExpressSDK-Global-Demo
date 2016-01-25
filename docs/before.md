@@ -9,6 +9,8 @@
 
 - define the ad placement name you want to integrate with, and submit it to Intowow for approval
 
+<!--
+
 <h4 id='import' style='color:green'>Add Libraries</h4>
 
 <p/>
@@ -45,10 +47,7 @@
 <p/>
  
 
-
-
-<br/>
-
+-->
 
 <h4 id='import' style='color:green'>Requirements and limits</h4>
 - SDK minimum supports API level 8 or above

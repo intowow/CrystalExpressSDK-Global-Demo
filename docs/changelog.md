@@ -86,8 +86,10 @@
 [Back to Top](./changelog/#api)
 
 ---------------------------------------
-
+<!--
 <h4 id='sdk_modify' style='color:green'>SDK Change Log(<a target="_blank" href="../before#import">download SDK</a>)</h4>
+-->
+<h4 id='sdk_modify' style='color:green'>SDK Change Log</h4>
 
 <table border="1">
 	<thead>
@@ -96,6 +98,48 @@
 		</tr>
 	</thead>
 	<tbody>
+		<tr>
+			<td align="center">1.6.3</td><td align="center">2015/1/23</td>
+			<td>
+				<ul>
+					<li>CE-658: Fix db migration fail when SDK upgrading version from 1.1.X over 1.4.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td align="center">1.6.2</td><td align="center">2015/1/22</td>
+			<td>
+				<ul>
+					<li>CE-654: Fix replace click url macro not working bug.</li>
+					<li>CE-655: get more information in the snapshot.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td align="center">1.6.1</td><td align="center">2015/1/19</td>
+			<td>
+				<ul>
+					<li>CE-597: Add user tag for retargeting.</li>
+					<li>CE-599: Add getting advertising id if APP has integrated with Google play services library.</li>
+					<li>CE-600: Add replace macro when SDK sending third-party tracking url.</li>
+					<li>CE-610: Add "no_retargeting" property in the open tracking type.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td align="center">1.6</td><td align="center">2015/12/31</td>
+			<td>
+				<ul>
+					<li>CE-378: Add support of CARD_IMAGE_POSTER, CARD_ANIMATION_POSTER, and CARD_VIDEO_POSTER.</li>
+					<li>CE-442: Add click tracking</li>
+					<li>CE-454: Add support of NATIVE_VIDEO, NATIVE_IMAGE, NATIVE_ANIMATION.</li>
+					<li>CE-467: Fix duplicated db insertion bug.</li>
+					<li>CE-484: Preview mode should bypass prefetch policy, geo targeting, and user audience targeting.</li>
+					<li>CE-499: Modify splash request guard time in preview mode.</li>
+					<li>CE-503: Fix splash video sync card animation not working bug.</li>
+				</ul>
+			</td>
+		</tr>
 		<tr>
 			<td align="center">1.5.2</td><td align="center">2015/12/14</td>
 			<td>
