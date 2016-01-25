@@ -16,6 +16,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.text.format.DateUtils;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.util.SparseArray;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -534,7 +535,7 @@ public class MultipleFixPositionStreamHelperActivity extends BaseActivity{
 				pullToRefreshListView.setBackgroundColor(Color
 						.parseColor("#e7e7e7"));
 				pullToRefreshListView.setLayoutParams(rParams);
-				ListView inner = pullToRefreshListView.getRefreshableView();
+				final ListView inner = pullToRefreshListView.getRefreshableView();
 				inner.setDivider(null);
 				inner.setDividerHeight(0);
 				
@@ -584,7 +585,7 @@ public class MultipleFixPositionStreamHelperActivity extends BaseActivity{
 							public void onItemClick(AdapterView<?> parent,
 									View view, int position, long id) {
 								
-								final int FIRST_VISIBLE_ITEM_OFFSET = -1;
+								final int FIRST_VISIBLE_ITEM_OFFSET = inner.getHeaderViewsCount();
 								position = position + FIRST_VISIBLE_ITEM_OFFSET;
 
 								//	you should check is this position is ad first
@@ -627,11 +628,10 @@ public class MultipleFixPositionStreamHelperActivity extends BaseActivity{
 								// if you have already implemented this listener,
 								// add your original code here
 								// ...
-
 								if (helper != null) {
 									// pass the right position on to the SDK
 									//
-									final int FIRST_VISIBLE_ITEM_OFFSET = -1;
+									final int FIRST_VISIBLE_ITEM_OFFSET = inner.getHeaderViewsCount();
 									
 									helper.onScroll(
 											view,

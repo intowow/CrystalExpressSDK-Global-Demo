@@ -259,7 +259,7 @@ mListView.setOnScrollListener(new OnScrollListener() {
 ```
 <p/>
 
-- if you use the pull to refresh list view (`PullToRefreshListView`), then be sure to that the position value will be shift 1 on the `onScroll()` callback, since the library adds one header view in the head of your dataset
+- if you use the pull to refresh list view (`PullToRefreshListView`), then be sure to that the position value will be shift N on the `onScroll()` callback, since the library adds one header view in the head of your dataset
 <br/>
 [Sample Code][Stream-Pull-OnScrollListener]
 <codetag tag="Stream-Pull-OnScrollListener"/>
@@ -291,7 +291,7 @@ pullToRefreshListView
 				// ...
 
 				if (adapter != null) {
-					final int FIRST_VISIBLE_ITEM_OFFSET = -1;
+					final int FIRST_VISIBLE_ITEM_OFFSET = inner.getHeaderViewsCount();
 					// pass the right position on to the SDK
 					//
 					adapter.onScroll(
@@ -358,7 +358,7 @@ pullToRefreshListView
 			public void onItemClick(AdapterView<?> parent,
 					View view, int position, long id) {
 
-				final int FIRST_VISIBLE_ITEM_OFFSET = -1;
+				final int FIRST_VISIBLE_ITEM_OFFSET = inner.getHeaderViewsCount();
 				position = position + FIRST_VISIBLE_ITEM_OFFSET;
 
 				//	you should check is this position is ad first
