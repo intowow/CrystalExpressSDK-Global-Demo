@@ -13,7 +13,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.SET_ORIENTATION" />
 
-    <application
+    <application 
         android:name="com.intowow.crystalexpress.BaseApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
