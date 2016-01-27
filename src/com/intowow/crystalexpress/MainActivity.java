@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.intowow.crystalexpress.cedemo.CEOpenSplashActivity;
 import com.intowow.crystalexpress.content.ContentActivity;
+import com.intowow.crystalexpress.displayad.DisplayActivity;
 import com.intowow.crystalexpress.flip.FlipActivity;
 import com.intowow.crystalexpress.nativead.NativeActivity;
 import com.intowow.crystalexpress.opensplash.OpenSplashActivity;
@@ -45,6 +46,13 @@ public class MainActivity extends BaseActivity {
     public void onClickNativeAd(View view) {
 		Intent intent = new Intent();
 		intent.setClass(this, NativeActivity.class);
+		startActivity(intent);
+		finish();
+    }
+    
+    public void onClickDisplayAd(View view) {
+		Intent intent = new Intent();
+		intent.setClass(this, DisplayActivity.class);
 		startActivity(intent);
 		finish();
     }

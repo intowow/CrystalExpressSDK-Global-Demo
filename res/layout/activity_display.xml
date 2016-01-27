@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="#ffffff" >
 
-    <com.intowow.sample.displayad.CrystalExpressScrollView
+    <com.intowow.crystalexpress.content.CrystalExpressScrollView
         android:id="@+id/scrollview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -38,6 +38,6 @@
                 android:background="@drawable/content_bottom" />
 
         </LinearLayout>
-    </com.intowow.sample.displayad.CrystalExpressScrollView>
+    </com.intowow.crystalexpress.content.CrystalExpressScrollView>
 
 </RelativeLayout>

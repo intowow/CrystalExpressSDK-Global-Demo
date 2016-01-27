@@ -86,6 +86,10 @@ public class LayoutManager {
 		AD_VIDEO_HEIGHT, // 354
 		AD_BODY_WIDTH, // 640
 		AD_BODY_TEXT_SIZE, // 24
+		
+		DISPLAY_AD_TOP_IMG_HEIGHT, // 1401
+		DISPLAY_AD_BOTTOM_IMG_HEIGHT, // 315
+		DISPLAY_AD_MARGIN, //20
 	}	
 	
 	/**
@@ -130,6 +134,10 @@ public class LayoutManager {
 		sm(LayoutID.AD_VIDEO_HEIGHT, 354);
 		sm(LayoutID.AD_BODY_WIDTH, 640);
 		sm(LayoutID.AD_BODY_TEXT_SIZE, 24);
+		
+		sm(LayoutID.DISPLAY_AD_TOP_IMG_HEIGHT, 1401);
+		sm(LayoutID.DISPLAY_AD_BOTTOM_IMG_HEIGHT, 315);
+		sm(LayoutID.DISPLAY_AD_MARGIN, 70);
 	}
 	
 	private void updateLayout() {
@@ -171,6 +179,10 @@ public class LayoutManager {
 		as(LayoutID.AD_VIDEO_HEIGHT);
 		as(LayoutID.AD_BODY_WIDTH);
 		ts(LayoutID.AD_BODY_TEXT_SIZE);
+		
+		as(LayoutID.DISPLAY_AD_TOP_IMG_HEIGHT);
+		as(LayoutID.DISPLAY_AD_BOTTOM_IMG_HEIGHT);
+		as(LayoutID.DISPLAY_AD_MARGIN);
 	}
 	
 	public void init(float density, int width, int height) {
