@@ -118,7 +118,7 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
         </activity>
-        
+        <activity android:name="com.intowow.crystalexpress.nativead.NativeActivity" />
         <activity
             android:name="com.intowow.sdk.SplashAdActivity"
             android:configChanges="orientation|screenSize"
