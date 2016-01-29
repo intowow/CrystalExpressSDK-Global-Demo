@@ -44,7 +44,6 @@ public class CEContentActivity extends BaseActivity {
 	//************************************************
 	//	content and flip ad
 	//
-	private final static String mFlipPlacement = Config.FLIP_PLACEMENT;
 	private final static String mContentPlacement = Config.CONTENT_PLACEMENT;
 	private ContentPagerAdapter 	mPagerAdapter;
 
