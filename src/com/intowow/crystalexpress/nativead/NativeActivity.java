@@ -332,9 +332,6 @@ public class NativeActivity extends BaseActivity implements AdListener {
 	public void onVideoEnd(Ad arg0) {
 		// TODO Auto-generated method stub
 		Log.w(LOG_TAG, "onVideoEnd : " );
-		
-		mNativeAd.loadAd(0L);
-		
 	}
 
 	@Override
