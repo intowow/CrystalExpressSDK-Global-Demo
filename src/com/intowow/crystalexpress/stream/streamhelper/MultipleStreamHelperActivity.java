@@ -16,6 +16,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.text.format.DateUtils;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.util.SparseArray;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -41,6 +42,7 @@ import com.intowow.crystalexpress.LayoutManager;
 import com.intowow.crystalexpress.LayoutManager.LayoutID;
 import com.intowow.crystalexpress.MainActivity;
 import com.intowow.crystalexpress.R;
+import com.intowow.sdk.Ad;
 import com.intowow.sdk.StreamHelper;
 
 public class MultipleStreamHelperActivity extends BaseActivity{
@@ -423,6 +425,12 @@ public class MultipleStreamHelperActivity extends BaseActivity{
 			mContext = null;
 			mCanvas = null;
 			mAdapters = null;
+			
+			if (mStreamHelpers != null) {
+				for (int i = 0 ; i < mStreamHelpers.size(); ++i) {
+					mStreamHelpers.valueAt(i).release();
+				}
+			}
 		}
 
 		public void refreshAd(int position) {
@@ -491,10 +499,10 @@ public class MultipleStreamHelperActivity extends BaseActivity{
 
 				//	set heler listener
 				//
-				helper.setListener(new StreamHelper.ADListener() {
+				helper.setListener(new StreamHelper.StreamHelperListener() {
 					
 					@Override
-					public int onADLoaded(int position) {
+					public int onADLoaded(int position, Ad ad) {
 						// 	when the SDK load one stream ad,
 						//	it will call this callback for getting 
 						//	the position you add in the DataSet.
@@ -504,6 +512,9 @@ public class MultipleStreamHelperActivity extends BaseActivity{
 						//
 						//	if you return "-1", it means that the ad is not added in your DataSet
 						//
+						
+						Log.i("StreamHelper", "onADLoaded ["+ad.getAdId()+"]["+ad.getEngageUrl()+"]["+ad.getSize().height()+"]");
+						
 						position = getDefaultMinPosition(position);
 						
 						if (items != null && items.size() >  position) {				
@@ -632,7 +643,7 @@ public class MultipleStreamHelperActivity extends BaseActivity{
 								if (helper != null) {
 									// pass the right position on to the SDK
 									//
-									final int FIRST_VISIBLE_ITEM_OFFSET = -1;
+									final int FIRST_VISIBLE_ITEM_OFFSET = -inner.getHeaderViewsCount();
 									
 									helper.onScroll(
 											view,

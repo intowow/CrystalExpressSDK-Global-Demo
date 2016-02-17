@@ -3,6 +3,7 @@ package com.intowow.crystalexpress.nativead;
 import java.util.Arrays;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ import android.widget.TextView;
 
 import com.intowow.crystalexpress.BaseActivity;
 import com.intowow.crystalexpress.LayoutManager;
+import com.intowow.crystalexpress.MainActivity;
 import com.intowow.crystalexpress.LayoutManager.LayoutID;
 import com.intowow.crystalexpress.R;
 import com.intowow.sdk.Ad;
@@ -304,7 +306,8 @@ public class NativeActivity extends BaseActivity implements AdListener {
 	@Override
 	public void onAdImpression(Ad ad) {
 		// TODO Auto-generated method stub
-		Log.w(LOG_TAG, "onAdImpression : " );
+		Log.w(LOG_TAG, "onAdImpression : " + ad.getSize().width() + " " + ad.getSize().height());
+//		Log.w(LOG_TAG, "onAdImpression : ");
 	}
 
 	@Override
@@ -344,6 +347,15 @@ public class NativeActivity extends BaseActivity implements AdListener {
 	public void onVideoStart(Ad arg0) {
 		// TODO Auto-generated method stub
 		Log.w(LOG_TAG, "onVideoStart : " );
+	}
+	
+	@Override
+	public void onBackPressed() {
+		Intent intent = new Intent();
+		intent.setClass(this, MainActivity.class);
+		startActivity(intent);
+		
+		finish();
 	}
 
 }

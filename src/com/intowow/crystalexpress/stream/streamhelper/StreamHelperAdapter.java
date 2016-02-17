@@ -4,6 +4,7 @@ import java.util.List;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,9 +16,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.intowow.crystalexpress.LayoutManager;
-import com.intowow.crystalexpress.R;
 import com.intowow.crystalexpress.LayoutManager.LayoutID;
+import com.intowow.crystalexpress.R;
+import com.intowow.sdk.Ad;
 import com.intowow.sdk.StreamHelper;
+import com.intowow.sdk.StreamHelper.StreamAdListener;
 
 /**
  *	you can let your adapter (or parent adapter) extend the DeferStreamAdapter,
@@ -25,6 +28,8 @@ import com.intowow.sdk.StreamHelper;
  * */
 public class StreamHelperAdapter extends BaseAdapter {
 
+	private static String TAG = "StreamHelper";
+	
 	List<Object> mList;
 	Activity mContext;
 	LayoutInflater mInflater;
@@ -118,11 +123,58 @@ public class StreamHelperAdapter extends BaseAdapter {
 		//XXX@Stream-StreamHelper-getView@#Stream-StreamHelper-getView#
 		View adView =  null;
 		if(mStreamHelper != null) {
-			adView = mStreamHelper.getAD(position);
 			
-			//	or you can resize the ad width by this way
-			//	adView =  mStreamHelper.getAD(position, someIntWidth);
-			//
+			adView = mStreamHelper.getAD(position, new StreamAdListener() {
+
+				@Override
+				public void onAdClicked(Ad ad) {
+					// TODO Auto-generated method stub
+					Log.i(TAG, "onAdClicked ["+ad.getAdId()+"]["+ad.getEngageUrl()+"]["+ad.getSize().height()+"]");
+				}
+
+				@Override
+				public void onAdImpression(Ad ad) {
+					// TODO Auto-generated method stub
+					Log.i(TAG, "onAdImpression ["+ad.getAdId()+"]["+ad.getEngageUrl()+"]["+ad.getSize().height()+"]");
+				}
+
+				@Override
+				public void onAdMute(Ad ad) {
+					// TODO Auto-generated method stub
+					Log.i(TAG, "onAdMute ["+ad.getAdId()+"]["+ad.getEngageUrl()+"]["+ad.getSize().height()+"]");
+				}
+
+				@Override
+				public void onAdUnmute(Ad ad) {
+					// TODO Auto-generated method stub
+					Log.i(TAG, "onAdUnmute ["+ad.getAdId()+"]["+ad.getEngageUrl()+"]["+ad.getSize().height()+"]");
+				}
+
+				@Override
+				public void onVideoEnd(Ad ad) {
+					// TODO Auto-generated method stub
+					Log.i(TAG, "onVideoEnd ["+ad.getAdId()+"]["+ad.getEngageUrl()+"]["+ad.getSize().height()+"]");
+				}
+
+				@Override
+				public void onVideoProgress(Ad ad, int arg1, int arg2) {
+					// TODO Auto-generated method stub
+					Log.i(TAG, "onVideoProgress ["+ad.getAdId()+"]["+ad.getEngageUrl()+"]["+ad.getSize().height()+"]");
+				}
+
+				@Override
+				public void onVideoStart(Ad ad) {
+					// TODO Auto-generated method stub
+					Log.i(TAG, "onVideoStart ["+ad.getAdId()+"]["+ad.getEngageUrl()+"]["+ad.getSize().height()+"]");
+				}
+				
+				@Override
+				public void onVideoStop(Ad ad) {
+					// TODO Auto-generated method stub
+					Log.i(TAG, "onVideoStop ["+ad.getAdId()+"]["+ad.getEngageUrl()+"]["+ad.getSize().height()+"]");
+				}});
+				
+			
 		}
 		
 		if(adView != null) {

@@ -6,6 +6,7 @@ import java.util.List;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -13,9 +14,10 @@ import android.widget.RelativeLayout;
 import com.intowow.crystalexpress.BaseActivity;
 import com.intowow.crystalexpress.Config;
 import com.intowow.crystalexpress.LayoutManager;
-import com.intowow.crystalexpress.MainActivity;
 import com.intowow.crystalexpress.LayoutManager.LayoutID;
+import com.intowow.crystalexpress.MainActivity;
 import com.intowow.crystalexpress.R;
+import com.intowow.sdk.Ad;
 import com.intowow.sdk.StreamHelper;
 
 /**
@@ -87,10 +89,10 @@ public class SingleStreamHelperActivity extends BaseActivity {//TODO extends Bas
 		//end
 		
 		//XXX@Stream-StreamHelper-onADLoaded@#Stream-StreamHelper-onADLoaded#
-		mStreamHelper.setListener(new StreamHelper.ADListener() {
+		mStreamHelper.setListener(new StreamHelper.StreamHelperListener() {
 			
 			@Override
-			public int onADLoaded(int position) {
+			public int onADLoaded(int position, Ad ad) {
 				//
 				// 	when one stream ad has been loaded,
 				//	the SDK will need to know which position 
@@ -106,6 +108,9 @@ public class SingleStreamHelperActivity extends BaseActivity {//TODO extends Bas
 				//	if you return "-1", it means that the ad is not added 
 				//	in your DataSet.
 				//
+				
+				Log.i("StreamHelper", "onADLoaded ["+ad.getAdId()+"]["+ad.getEngageUrl()+"]["+ad.getSize().height()+"]");
+				
 				position = getDefaultMinPosition(position);
 				
 				if (mItems != null && mItems.size() >  position) {				

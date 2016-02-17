@@ -37,6 +37,12 @@ public class BaseActivity extends Activity{//XXX#BaseActivity#
     	//
 		I2WAPI.init(this, true);
 		
+		//	10 mb
+		//
+		I2WAPI.setMaximumBitmapCacheSize(this, 10485760);
+		
+		
+		
 		//XXX@OpenSplash-startapplication@#OpenSplash-startapplication#
 		//	you can launch the BaseApplication.java
 		//	for requesting the enter foreground splash ad

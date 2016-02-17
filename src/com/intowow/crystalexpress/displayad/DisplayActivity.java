@@ -1,5 +1,6 @@
 package com.intowow.crystalexpress.displayad;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.ScrollView;
 
 import com.intowow.crystalexpress.BaseActivity;
 import com.intowow.crystalexpress.LayoutManager;
+import com.intowow.crystalexpress.MainActivity;
 import com.intowow.crystalexpress.LayoutManager.LayoutID;
 import com.intowow.crystalexpress.R;
 import com.intowow.crystalexpress.content.CrystalExpressScrollView;
@@ -233,7 +235,8 @@ public class DisplayActivity extends BaseActivity implements AdListener, ScrollV
 	@Override
 	public void onAdImpression(Ad ad) {
 		// TODO Auto-generated method stub
-		Log.d(TAG, "onAdImpression");
+		Log.d(TAG, "onAdImpression " + ad.getSize().width() + " " + ad.getSize().height());
+//		Log.d(TAG, "onAdImpression ");
 	}
 
 	@Override
@@ -264,6 +267,15 @@ public class DisplayActivity extends BaseActivity implements AdListener, ScrollV
 	public void onVideoStart(Ad arg0) {
 		// TODO Auto-generated method stub
 		Log.d(TAG, "onVideoStart");
+	}
+	
+	@Override
+	public void onBackPressed() {
+		Intent intent = new Intent();
+		intent.setClass(this, MainActivity.class);
+		startActivity(intent);
+		
+		finish();
 	}
 
 }
